@@ -1,19 +1,17 @@
-import { Route } from "react-router";
+import { Route } from "react-router-dom";
 
-function Name() {
-  return (<h1>Welcome to the Home Page</h1>)
-}
-function Name2() {
-  return (<h1>Welcome to the Movie Page</h1>)
-}
+//HOC
+import DefaultHOC from "./HOC/default.hoc";
+
+//Component
+import Temp from "./components/temp";
+
 function App() {
   return (
     <>
-      <Route path="/" exact component={Name}>
-      </Route>
-      <Route path="/movie" exact component={Name2}>
-      </Route>
+     <DefaultHOC path="/" exact component={Temp} />
     </>
-  )
+  );
 }
+// / , /movie
 export default App;
