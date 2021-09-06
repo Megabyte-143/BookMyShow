@@ -13,9 +13,7 @@ const HeroCarousal = () => {
     const settingslg = {
         arrow: true,
         autoplay: true,
-        dots: true,
         infinite: true,
-        speed: 500,
         centerMode: true,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -23,9 +21,9 @@ const HeroCarousal = () => {
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />
     };
+    
     const settings = {
-        arrow: true,
-        autoplay: true,
+        arrow: true,    
         dots: true,
         infinite: true,
         speed: 500,
