@@ -7,7 +7,7 @@ const Poster = (props) => {
             <div className=" flex flex-col items-start gap-2 " >
                 <div className="h-80" >
                     <img
-                        src={props.src} alt={props.title} className="w-full h-full rounded-xl"
+                        src={props.src} alt={props.original_title} className="w-full h-full rounded-xl"
                     />
                 </div>
                 <h3
