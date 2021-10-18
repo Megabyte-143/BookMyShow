@@ -37,7 +37,7 @@ const NavLg = () => {
             <div className="container mx-auto px-4 flex items-center justify-between">
                 <div className="flex items-center w-1/2 gap-4 ">
                     <div className="w-40 h-12 ">
-                        <img src="https://media-fastly.hackerearth.com/media/companies/cd55f3fa-0da4-11e5-96fd-22000aa22ce3-BMS_LOGO_CMYK_without-tagline_1.jpg" alt="LoGo" className="w-full h-full" />
+                        <img src="https://in.bmscdn.com/webin/common/icons/logo.svg" alt="LoGo" className="w-full h-full" />
                     </div>
                     <div className=" w-full flex items-center bg-white gap-3 px-3 py-2 rounded-md h-9">
                         <div className="w-4 h-4">

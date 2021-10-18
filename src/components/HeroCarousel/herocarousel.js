@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import HeroSlider from "react-slick";
+import axios from "axios";
 
 //Import Component
 import { NextArrow, PrevArrow } from "./arrowcomponent";
@@ -10,6 +11,21 @@ import "slick-carousel/slick/slick-theme.css";
 
 
 const HeroCarousal = () => {
+
+    const [images, setImages] = useState([]);
+
+    useEffect(() => {
+
+        const requestNowPlayingMovies = async () => {
+            const getMovies = await axios.get("/movie/now_playing");
+            console.log(
+                getMovies
+            );
+            setImages(getMovies.data.results);
+        };
+        requestNowPlayingMovies();
+    }, []);
+
     const settingslg = {
         arrow: true,
         autoplay: true,
@@ -21,9 +37,9 @@ const HeroCarousal = () => {
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />
     };
-    
+
     const settings = {
-        arrow: true,    
+        arrow: true,
         dots: true,
         infinite: true,
         speed: 500,
@@ -33,14 +49,6 @@ const HeroCarousal = () => {
         prevArrow: <PrevArrow />
     };
 
-    const images = [
-        "https://images.unsplash.com/photo-1586227740560-8cf2732c1531?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1428&q=80",
-        "https://images.unsplash.com/photo-1630018548696-e1f671020900?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        "https://images.unsplash.com/photo-1593642532744-d377ab507dc8?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-        "https://images.unsplash.com/photo-1629907912711-9845e6e762a9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1349&q=80",
-        "https://images.unsplash.com/photo-1628191010210-a59de33e5941?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-    ]
-
     return (
         <>
             <div className="lg:hidden py-3">
@@ -48,7 +56,8 @@ const HeroCarousal = () => {
                     {
                         images.map((image) => (
                             <div className="w-20 h-64">
-                                <img src={image} alt="testing" className="w-full h-full px-1 rounded-md " />
+                                <img src={`https://image.tmdb.org/t/p/original${images.backdrop_path}`}
+                                    alt="testing" className="w-full h-full px-1 rounded-md " />
                             </div>
                         ))
                     }
@@ -59,7 +68,7 @@ const HeroCarousal = () => {
                     {
                         images.map((image) => (
                             <div className="w-20 h-96">
-                                <img src={image} alt="testing" className="w-full h-full px-2  rounded-md " />
+                                <img src={`https://image.tmdb.org/t/p/original${image.backdrop_path}`} alt="testing" className="w-full h-full px-2  rounded-md " />
                             </div>
                         ))
                     }

@@ -1,7 +1,7 @@
 import React from "react";
 
 //Components
-import NavBar from "../components/navbar/navbar.component";
+import NavBar from "../components/navbar/navbarcomponent";
 import HeroCarousal from "../components/HeroCarousel/herocarousel";
 
 const DefaultLayout = (props) => {

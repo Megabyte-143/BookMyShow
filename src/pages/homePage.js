@@ -1,10 +1,25 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
+
+import axios from "axios";
 
 import EntertainmentCardSlider from "../components/Entertainment/entertainmentcard";
 
 import PosterSlider from "../components/posterSlider/poster_slider";
-import PremierImages from "../config/temp_poster_config";
+
 const HomePage = () => {
+
+    const[popularMovies, setpopularMovies] =useState([]);
+
+    useEffect(()=>{
+        const requestPopularMovies = async()=>{
+            const getPopularMovies= await axios.get('/movie/popular');
+            setpopularMovies (getPopularMovies.data.results);
+            
+        };
+        requestPopularMovies();
+    },[]);
+
+
     return (
         <>
             <div className="flex flex-col gap-10">
@@ -23,18 +38,19 @@ const HomePage = () => {
                                 className="w-full h-full"
                             />
                         </div>
-                        <PosterSlider images={PremierImages} title=" Premiers" subtitle="Brand new Realses Every Friday" isDark={true} />
+                        <PosterSlider images={popularMovies} 
+                        title=" Premiers" subtitle="Brand new Realses Every Friday" isDark={true} />
                     </div>
                 </div>
             </div>
             <div>
                 <div className="container mx-auto px-10">
-                    <PosterSlider images={PremierImages} title="Online Streaming" subtitle="Brand new Realses Every Friday" isDark={false} />
+                    <PosterSlider images={popularMovies} title="Online Streaming" subtitle="Brand new Realses Every Friday" isDark={false} />
                 </div>
             </div>
             <div>
                 <div className="container mx-auto px-10">
-                    <PosterSlider images={PremierImages} title="Outdoor Event" subtitle="Brand new Realses Every Friday" isDark={false} />
+                    <PosterSlider images={popularMovies} title="Outdoor Event" subtitle="Brand new Realses Every Friday" isDark={false} />
                 </div>
             </div>
         </>
