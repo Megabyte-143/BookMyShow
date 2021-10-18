@@ -1,8 +1,67 @@
 import React from "react";
 import MovieHero from "../components/movie/movie_hero_component";
 import { BiCameraMovie } from "react-icons/bi";
+import MovieSlider from "../components/movie/movie_slider";
+
+const castImages = [
+
+    {
+        src: "https://in.bmscdn.com/iedb/artist/images/website/poster/large/michelle-yeoh-1473-24-03-2017-17-32-23.jpg",
+        alt: "Michelle Yeoh",
+        title: "Michelle Yeoh",
+        subtitle: "as Jiang Nan"
+    },
+    {
+        src: "https://in.bmscdn.com/iedb/artist/images/website/poster/large/tony-leung-iein105711-02-04-2018-13-07-58.jpg",
+        alt: "Tony Leung Chiu-wai",
+        title: "Tony Leung Chiu-wai",
+        subtitle: "as Wenwu / The Mandarin"
+    },
+    {
+        src: "https://in.bmscdn.com/iedb/artist/images/website/poster/large/awkwafina-1093500-20-06-2018-12-05-44.jpg",
+        alt: "Awkwafina",
+        title: "Awkwafina",
+        subtitle: "as Katy"
+    },
+    {
+        src: "https://in.bmscdn.com/iedb/artist/images/website/poster/large/simu-liu-2006167-13-05-2021-04-13-21.jpg",
+        alt: "Simu Liu",
+        title: "Simu Liu",
+        subtitle: "as Shang-Chi"
+    },
 
 
+];
+
+const crewImages = [
+
+    {
+        src: "https://in.bmscdn.com/iedb/artist/images/website/poster/large/destin-cretton-1076480-15-01-2020-01-11-15.jpg",
+        alt: "Destin Cretton",
+        title: "Destin Cretton",
+        subtitle: "Director"
+    },
+    {
+        src: "https://in.bmscdn.com/iedb/artist/images/website/poster/large/kevin-feige-1092082-18-04-2018-14-44-54.jpg",
+        alt: "Kevin Feige",
+        title: "Kevin Feige",
+        subtitle: "Producer"
+    },
+    {
+        src: "https://in.bmscdn.com/iedb/artist/images/website/poster/large/jonathan-schwartz-1264076-01-03-2019-07-51-58.jpg",
+        alt: "Jonathan Schwartz",
+        title: "Jonathan Schwartz",
+        subtitle: "Producer"
+    },
+    {
+        src: "https://in.bmscdn.com/iedb/artist/images/website/poster/large/bill-pope-iein005277-24-03-2017-13-02-34.jpg",
+        alt: "Bill Pope",
+        title: "Bill Pope",
+        subtitle: "Cinematographer"
+    },
+    
+
+];
 const MoviePage = () => {
     return (
         <>
@@ -37,8 +96,16 @@ const MoviePage = () => {
                         </div>
                     </div>
                 </div>
+                <div>
+                    <div className="container mx-auto ">
+                        <MovieSlider images={castImages} title="Cast" />
+                    </div>
+                    <div className="container mx-auto ">
+                        <MovieSlider images={crewImages} title="Crew" />
+                    </div>
+                </div>
             </div>
-           
+
         </>
     );
 };
