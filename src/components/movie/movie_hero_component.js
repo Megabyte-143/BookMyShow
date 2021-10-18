@@ -1,22 +1,24 @@
 import React from "react";
 import { FaHeart } from "react-icons/fa";
-import { BiChevronRight, BiShareAlt } from "react-icons/bi"
+import { BiChevronRight } from "react-icons/bi"
 
 const launchRazorPay = () => {
     let options = {
-        key: process.env.TMBD_API_KEY,
+
+        key: process.env.REACT_APP_API_KEY,
         amount: 500 * 100,
-        description: "Movie Purchase on Rental",
+        currency: "INR",
         name: "Book My Show Clone",
-        currecy: "INR",
+        description: "Movie Purchase On Rental",
         image: "https://i.ibb.co/zPBYW3H/imgbin-bookmyshow-office-android-ticket-png.png",
         handler: () => {
-            alert("Payment Done")
+            alert("Payment Done");
         },
         theme: { color: "#c4242d" }
     };
-    let rzp = new window.Razorpay(options);
-    rzp.open();
+
+    let razorpay = new window.Razorpay(options);
+    razorpay.open();
 }
 
 const MovieHero = () => {
@@ -53,7 +55,7 @@ const MovieHero = () => {
                 <div className="absolute z-30 w-96 h-96 left-80 top-10 px-4 flex flex-col">
                     <h1 className="text-white font-bold text-4xl" >Shang-Chi and the Legend of the Ten Rings</h1>
                     <div className="py-4 " >
-                       
+
 
                         <div className="w-96 p-4 h-20 bg-gray-600 rounded-xl my-4 items-center justify-center" >
                             <div >
